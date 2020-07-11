@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ssm-parameter-backed-resource in different region 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccArtifactHashA58B31E8": Object {
+      "Description": "Artifact hash for asset \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3BucketA67797D4": Object {
+      "Description": "S3 bucket for asset \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42": Object {
+      "Description": "S3 key for asset version \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
+      "DependsOn": Array [
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3BucketA67797D4",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 120,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "ssm:PutParameter",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": "ssm:DeleteParameter",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "Bucket83908E77": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketParamParameucentral1ResoureB1DD6C9F": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Create": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+        "Delete": Object {
+          "action": "deleteParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+}
+`;
+
+exports[`ssm-parameter-backed-resource in different region 2`] = `
+Object {
+  "Parameters": Object {
+    "BucketNonce": Object {
+      "Default": "123",
+      "Type": "String",
+    },
+    "SsmParameterValuemyparamC96584B6F00A464EAD1953AFF4B05118Parameter": Object {
+      "Default": "/my-param",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+}
+`;
+
+exports[`ssm-parameter-backed-resource in same region 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccArtifactHashA58B31E8": Object {
+      "Description": "Artifact hash for asset \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3BucketA67797D4": Object {
+      "Description": "S3 bucket for asset \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+    "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42": Object {
+      "Description": "S3 key for asset version \\"f883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50cc\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
+      "DependsOn": Array [
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3BucketA67797D4",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf883e12689f8357ff04376b1abab555e2b18f9992e78242d504a2c4d74bb50ccS3VersionKeyD2C3FB42",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 120,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "ssm:PutParameter",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": "ssm:DeleteParameter",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "Bucket83908E77": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketParamParameucentral1ResoureB1DD6C9F": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Create": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+        "Delete": Object {
+          "action": "deleteParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "eu-central-1",
+          "service": "SSM",
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "BucketParamParamuseast1ResoureEC3872F3": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Create": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "us-east-1",
+          "service": "SSM",
+        },
+        "Delete": Object {
+          "action": "deleteParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "us-east-1",
+          "service": "SSM",
+        },
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": Object {
+          "action": "putParameter",
+          "parameters": Object {
+            "Name": "/my-param",
+            "Overwrite": "TRUE:BOOLEAN",
+            "Type": "String",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          "physicalResourceId": Object {
+            "id": "/my-param",
+          },
+          "region": "us-east-1",
+          "service": "SSM",
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+}
+`;
+
+exports[`ssm-parameter-backed-resource in same region 2`] = `Object {}`;
