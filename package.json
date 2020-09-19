@@ -36,7 +36,7 @@
     "@aws-cdk/custom-resources": "1.61.1",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@types/jest": "26.0.13",
+    "@types/jest": "26.0.14",
     "@types/node": "14.10.1",
     "@typescript-eslint/eslint-plugin": "4.1.1",
     "@typescript-eslint/parser": "4.1.1",
