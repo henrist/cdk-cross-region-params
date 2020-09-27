@@ -3,29 +3,28 @@
 exports[`ssm-parameter-reader 1`] = `
 Object {
   "Parameters": Object {
-    "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9ArtifactHash2145BA79": Object {
-      "Description": "Artifact hash for asset \\"26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9\\"",
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11": Object {
+      "Description": "Artifact hash for asset \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
       "Type": "String",
     },
-    "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9S3BucketFABDF94A": Object {
-      "Description": "S3 bucket for asset \\"26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9\\"",
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9": Object {
+      "Description": "S3 bucket for asset \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
       "Type": "String",
     },
-    "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9S3VersionKey7F524A13": Object {
-      "Description": "S3 key for asset version \\"26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9\\"",
+    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554": Object {
+      "Description": "S3 key for asset version \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
       "Type": "String",
     },
   },
   "Resources": Object {
     "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
       "DependsOn": Array [
-        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
         "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
       ],
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9S3BucketFABDF94A",
+            "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -38,7 +37,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9S3VersionKey7F524A13",
+                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
                         },
                       ],
                     },
@@ -51,7 +50,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters26eaa89189222c5c9e14302b592cb9374955c1baf0e94b2ad2a302555454c5b9S3VersionKey7F524A13",
+                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
                         },
                       ],
                     },
@@ -104,7 +103,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E": Object {
+    "ParamReaderCustomResourcePolicy6D6224AD": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -131,7 +130,7 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleDefaultPolicyD28E1A5E",
+        "PolicyName": "ParamReaderCustomResourcePolicy6D6224AD",
         "Roles": Array [
           Object {
             "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
@@ -142,6 +141,9 @@ Object {
     },
     "ParamReaderDE9769DB": Object {
       "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "ParamReaderCustomResourcePolicy6D6224AD",
+      ],
       "Metadata": Object {
         "Nonce": "123",
       },
