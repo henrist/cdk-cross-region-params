@@ -22,5 +22,7 @@ test("ssm-parameter-reader", () => {
   })
 
   expect(reader.parameterValue).toContain("Token")
-  expect(stack2).toMatchCdkSnapshot()
+  expect(stack2).toMatchCdkSnapshot({
+    ignoreAssets: true,
+  })
 })

@@ -16,5 +16,7 @@ test("cross-region-ssm-parameter", () => {
     value: "some value",
   })
 
-  expect(stack1).toMatchCdkSnapshot()
+  expect(stack1).toMatchCdkSnapshot({
+    ignoreAssets: true,
+  })
 })
