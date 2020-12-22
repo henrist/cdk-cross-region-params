@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "4.10.0",
     "aws-sdk": "2.799.0",
     "eslint": "7.16.0",
-    "eslint-config-prettier": "7.0.0",
+    "eslint-config-prettier": "7.1.0",
     "eslint-plugin-deprecation": "1.2.0",
     "eslint-plugin-prettier": "3.3.0",
     "husky": "4.3.6",
