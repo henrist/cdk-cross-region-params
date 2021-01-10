@@ -45,7 +45,7 @@
     "eslint-config-prettier": "7.1.0",
     "eslint-plugin-deprecation": "1.2.0",
     "eslint-plugin-prettier": "3.3.1",
-    "husky": "4.3.6",
+    "husky": "4.3.7",
     "jest": "26.6.3",
     "jest-cdk-snapshot": "1.4.1",
     "prettier": "2.2.1",
