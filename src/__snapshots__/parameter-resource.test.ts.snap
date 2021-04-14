@@ -65,32 +65,18 @@ Object {
       ],
       "Properties": Object {
         "Create": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
-        "Delete": Object {
-          "action": "deleteParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
-        },
+        "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
@@ -99,20 +85,16 @@ Object {
           ],
         },
         "Update": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
       },
       "Type": "Custom::AWS",
@@ -166,16 +148,16 @@ Object {
 exports[`ssm-parameter-backed-resource in same region 1`] = `
 Object {
   "Parameters": Object {
-    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11": Object {
-      "Description": "Artifact hash for asset \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
+    "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dArtifactHashBC261AD6": Object {
+      "Description": "Artifact hash for asset \\"a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d\\"",
       "Type": "String",
     },
-    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9": Object {
-      "Description": "S3 bucket for asset \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
+    "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3BucketDDD15B67": Object {
+      "Description": "S3 bucket for asset \\"a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d\\"",
       "Type": "String",
     },
-    "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554": Object {
-      "Description": "S3 key for asset version \\"4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956\\"",
+    "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988": Object {
+      "Description": "S3 key for asset version \\"a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d\\"",
       "Type": "String",
     },
   },
@@ -187,7 +169,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
+            "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3BucketDDD15B67",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -200,7 +182,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+                          "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988",
                         },
                       ],
                     },
@@ -213,7 +195,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+                          "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988",
                         },
                       ],
                     },
@@ -278,32 +260,18 @@ Object {
       ],
       "Properties": Object {
         "Create": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
-        "Delete": Object {
-          "action": "deleteParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
-        },
+        "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
@@ -312,20 +280,16 @@ Object {
           ],
         },
         "Update": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "eu-central-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
       },
       "Type": "Custom::AWS",
@@ -390,32 +354,18 @@ Object {
       ],
       "Properties": Object {
         "Create": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "us-east-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"us-east-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
-        "Delete": Object {
-          "action": "deleteParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "us-east-1",
-          "service": "SSM",
-        },
+        "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"us-east-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
@@ -424,20 +374,16 @@ Object {
           ],
         },
         "Update": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/my-param",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": Object {
-              "Ref": "Bucket83908E77",
-            },
-          },
-          "physicalResourceId": Object {
-            "id": "/my-param",
-          },
-          "region": "us-east-1",
-          "service": "SSM",
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\",\\"Value\\":\\"",
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              "\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"us-east-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
+            ],
+          ],
         },
       },
       "Type": "Custom::AWS",

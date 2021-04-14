@@ -98,17 +98,7 @@ Object {
         "Nonce": "123",
       },
       "Properties": Object {
-        "Create": Object {
-          "action": "getParameter",
-          "parameters": Object {
-            "Name": "/my/param",
-          },
-          "physicalResourceId": Object {
-            "id": "/my/param",
-          },
-          "region": "eu-west-1",
-          "service": "SSM",
-        },
+        "Create": "{\\"service\\":\\"SSM\\",\\"action\\":\\"getParameter\\",\\"parameters\\":{\\"Name\\":\\"/my/param\\"},\\"region\\":\\"eu-west-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my/param\\"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
@@ -116,17 +106,7 @@ Object {
             "Arn",
           ],
         },
-        "Update": Object {
-          "action": "getParameter",
-          "parameters": Object {
-            "Name": "/my/param",
-          },
-          "physicalResourceId": Object {
-            "id": "/my/param",
-          },
-          "region": "eu-west-1",
-          "service": "SSM",
-        },
+        "Update": "{\\"service\\":\\"SSM\\",\\"action\\":\\"getParameter\\",\\"parameters\\":{\\"Name\\":\\"/my/param\\"},\\"region\\":\\"eu-west-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my/param\\"}}",
       },
       "Type": "Custom::AWS",
       "UpdateReplacePolicy": "Delete",

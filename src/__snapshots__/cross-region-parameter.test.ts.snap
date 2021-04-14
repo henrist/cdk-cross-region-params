@@ -59,31 +59,8 @@ Object {
         "ParamResoureCustomResourcePolicy94B01452",
       ],
       "Properties": Object {
-        "Create": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/param/name",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": "some value",
-          },
-          "physicalResourceId": Object {
-            "id": "/param/name",
-          },
-          "region": "eu-west-1",
-          "service": "SSM",
-        },
-        "Delete": Object {
-          "action": "deleteParameter",
-          "parameters": Object {
-            "Name": "/param/name",
-          },
-          "physicalResourceId": Object {
-            "id": "/param/name",
-          },
-          "region": "eu-west-1",
-          "service": "SSM",
-        },
+        "Create": "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/param/name\\",\\"Value\\":\\"some value\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-west-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/param/name\\"}}",
+        "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/param/name\\"},\\"region\\":\\"eu-west-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/param/name\\"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
@@ -91,20 +68,7 @@ Object {
             "Arn",
           ],
         },
-        "Update": Object {
-          "action": "putParameter",
-          "parameters": Object {
-            "Name": "/param/name",
-            "Overwrite": "TRUE:BOOLEAN",
-            "Type": "String",
-            "Value": "some value",
-          },
-          "physicalResourceId": Object {
-            "id": "/param/name",
-          },
-          "region": "eu-west-1",
-          "service": "SSM",
-        },
+        "Update": "{\\"service\\":\\"SSM\\",\\"action\\":\\"putParameter\\",\\"parameters\\":{\\"Name\\":\\"/param/name\\",\\"Value\\":\\"some value\\",\\"Type\\":\\"String\\",\\"Overwrite\\":true},\\"region\\":\\"eu-west-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/param/name\\"}}",
       },
       "Type": "Custom::AWS",
       "UpdateReplacePolicy": "Delete",
