@@ -46,6 +46,7 @@ export class ParameterReader extends cr.AwsCustomResource {
           ),
         ],
       }),
+      installLatestAwsSdk: false,
     })
 
     const r = this.node.findChild("Resource").node

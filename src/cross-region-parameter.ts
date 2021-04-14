@@ -49,6 +49,7 @@ export class CrossRegionParameter extends cdk.Construct {
         // a parameter later.
         resources: cr.AwsCustomResourcePolicy.ANY_RESOURCE,
       }),
+      installLatestAwsSdk: false,
     })
   }
 }

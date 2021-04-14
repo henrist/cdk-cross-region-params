@@ -77,7 +77,7 @@ Object {
           ],
         },
         "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
-        "InstallLatestAwsSdk": true,
+        "InstallLatestAwsSdk": false,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
             "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
@@ -272,7 +272,7 @@ Object {
           ],
         },
         "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"eu-central-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
-        "InstallLatestAwsSdk": true,
+        "InstallLatestAwsSdk": false,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
             "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
@@ -366,7 +366,7 @@ Object {
           ],
         },
         "Delete": "{\\"service\\":\\"SSM\\",\\"action\\":\\"deleteParameter\\",\\"parameters\\":{\\"Name\\":\\"/my-param\\"},\\"region\\":\\"us-east-1\\",\\"physicalResourceId\\":{\\"id\\":\\"/my-param\\"}}",
-        "InstallLatestAwsSdk": true,
+        "InstallLatestAwsSdk": false,
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
             "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
