@@ -30,10 +30,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.108.1",
-    "@aws-cdk/aws-ssm": "1.108.1",
-    "@aws-cdk/core": "1.108.1",
-    "@aws-cdk/custom-resources": "1.108.1",
+    "@aws-cdk/assert": "1.109.0",
+    "@aws-cdk/aws-ssm": "1.109.0",
+    "@aws-cdk/core": "1.109.0",
+    "@aws-cdk/custom-resources": "1.109.0",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
     "@types/jest": "26.0.23",
