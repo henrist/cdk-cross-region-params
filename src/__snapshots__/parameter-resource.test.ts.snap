@@ -2,7 +2,6 @@
 
 exports[`ssm-parameter-backed-resource in different region 1`] = `
 Object {
-  "Parameters": Any<Object>,
   "Resources": Object {
     "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
       "DependsOn": Array [
@@ -147,20 +146,6 @@ Object {
 
 exports[`ssm-parameter-backed-resource in same region 1`] = `
 Object {
-  "Parameters": Object {
-    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797ArtifactHashAAFCA968": Object {
-      "Description": "Artifact hash for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
-      "Type": "String",
-    },
-    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9": Object {
-      "Description": "S3 bucket for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
-      "Type": "String",
-    },
-    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9": Object {
-      "Description": "S3 key for asset version \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
-      "Type": "String",
-    },
-  },
   "Resources": Object {
     "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
       "DependsOn": Array [
@@ -169,41 +154,9 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9",
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-eu-west-1",
           },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
+          "S3Key": "11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2.zip",
         },
         "Handler": "index.handler",
         "Role": Object {

@@ -1,5 +1,6 @@
-import * as cdk from "@aws-cdk/core"
-import * as cr from "@aws-cdk/custom-resources"
+import { Arn, CfnResource, Stack } from "aws-cdk-lib"
+import * as cr from "aws-cdk-lib/custom-resources"
+import { Construct } from "constructs"
 
 export interface ParameterReaderProps {
   parameterName: string
@@ -21,7 +22,7 @@ function removeLeadingSlash(value: string): string {
  * with support to read cross-region.
  */
 export class ParameterReader extends cr.AwsCustomResource {
-  constructor(scope: cdk.Construct, id: string, props: ParameterReaderProps) {
+  constructor(scope: Construct, id: string, props: ParameterReaderProps) {
     super(scope, id, {
       onUpdate: {
         service: "SSM",
@@ -35,22 +36,21 @@ export class ParameterReader extends cr.AwsCustomResource {
       },
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({
         resources: [
-          cdk.Arn.format(
+          Arn.format(
             {
               service: "ssm",
               region: props.region,
               resource: "parameter",
               resourceName: removeLeadingSlash(props.parameterName),
             },
-            cdk.Stack.of(scope),
+            Stack.of(scope),
           ),
         ],
       }),
       installLatestAwsSdk: false,
     })
 
-    const r = this.node.findChild("Resource").node
-      .defaultChild as cdk.CfnResource
+    const r = this.node.findChild("Resource").node.defaultChild as CfnResource
     r.cfnOptions.metadata = r.cfnOptions.metadata || {}
     r.cfnOptions.metadata.Nonce = props.nonce ?? Date.now().toString()
   }

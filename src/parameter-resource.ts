@@ -1,9 +1,10 @@
-import * as ssm from "@aws-cdk/aws-ssm"
-import * as cdk from "@aws-cdk/core"
+import { CfnParameter, Stack } from "aws-cdk-lib"
+import * as ssm from "aws-cdk-lib/aws-ssm"
+import { Construct } from "constructs"
 import { CrossRegionParameter } from "./cross-region-parameter"
 
 type ReferenceToResource<T> = (
-  scope: cdk.Construct,
+  scope: Construct,
   id: string,
   reference: string,
 ) => T
@@ -38,18 +39,14 @@ export interface ParameterResourceProps<T> {
  * If the resource is in the same region, the resource will be returned
  * like normally in CDK, causing an export/import if cross-stack.
  */
-export class ParameterResource<T> extends cdk.Construct {
+export class ParameterResource<T> extends Construct {
   private readonly nonce: string
   private readonly parameterName: string
   private readonly resource: T
   private readonly referenceToResource: ReferenceToResource<T>
   private readonly regions: string[]
 
-  constructor(
-    scope: cdk.Construct,
-    id: string,
-    props: ParameterResourceProps<T>,
-  ) {
+  constructor(scope: Construct, id: string, props: ParameterResourceProps<T>) {
     super(scope, id)
     this.nonce = props.nonce ?? Date.now().toString()
     this.parameterName = props.parameterName
@@ -72,9 +69,9 @@ export class ParameterResource<T> extends cdk.Construct {
    * Get the resource by resolving the value from SSM Parameter Store
    * in case we are cross-region.
    */
-  public get(scope: cdk.Construct, id: string): T {
-    const producerRegion = cdk.Stack.of(this).region
-    const consumerRegion = cdk.Stack.of(scope).region
+  public get(scope: Construct, id: string): T {
+    const producerRegion = Stack.of(this).region
+    const consumerRegion = Stack.of(scope).region
 
     // Fast-path: Same region.
     if (producerRegion === consumerRegion) {
@@ -89,7 +86,7 @@ export class ParameterResource<T> extends cdk.Construct {
 
     scope.node.addDependency(this)
 
-    new cdk.CfnParameter(scope, `${id}Nonce`, {
+    new CfnParameter(scope, `${id}Nonce`, {
       default: this.nonce,
     })
 

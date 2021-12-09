@@ -1,5 +1,5 @@
-import * as cdk from "@aws-cdk/core"
-import * as cr from "@aws-cdk/custom-resources"
+import * as cr from "aws-cdk-lib/custom-resources"
+import { Construct } from "constructs"
 
 export interface CrossRegionParameterProps {
   region: string
@@ -10,12 +10,8 @@ export interface CrossRegionParameterProps {
 /**
  * SSM Parameter stored in another region.
  */
-export class CrossRegionParameter extends cdk.Construct {
-  constructor(
-    scope: cdk.Construct,
-    id: string,
-    props: CrossRegionParameterProps,
-  ) {
+export class CrossRegionParameter extends Construct {
+  constructor(scope: Construct, id: string, props: CrossRegionParameterProps) {
     super(scope, id)
 
     const physicalResourceId = cr.PhysicalResourceId.of(props.name)

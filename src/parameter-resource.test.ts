@@ -1,5 +1,5 @@
-import { Bucket } from "@aws-cdk/aws-s3"
-import { App, Stack } from "@aws-cdk/core"
+import { App, Stack } from "aws-cdk-lib"
+import { Bucket } from "aws-cdk-lib/aws-s3"
 import "jest-cdk-snapshot"
 import { ParameterResource } from "./parameter-resource"
 
