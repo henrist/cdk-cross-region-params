@@ -30,7 +30,9 @@ test("ssm-parameter-backed-resource in same region", () => {
 
   s.get(stack2, "Bucket")
 
-  expect(stack1).toMatchCdkSnapshot()
+  expect(stack1).toMatchCdkSnapshot({
+    ignoreAssets: true,
+  })
   expect(stack2).toMatchCdkSnapshot()
 })
 
