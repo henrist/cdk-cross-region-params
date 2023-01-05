@@ -41,7 +41,7 @@
     "aws-sdk": "2.1066.0",
     "constructs": "10.1.207",
     "eslint": "8.31.0",
-    "eslint-config-prettier": "8.5.0",
+    "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.2",
     "jest": "28.1.3",
