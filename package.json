@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "2.68.0",
-    "@eslint/js": "^9.36.0",
+    "@eslint/js": "9.36.0",
     "@types/node": "24.5.2",
     "aws-cdk-lib": "2.215.0",
     "aws-sdk": "2.1692.0",
@@ -40,12 +40,12 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.4",
     "jest-cdk-snapshot": "2.3.6",
-    "jiti": "^2.5.1",
+    "jiti": "2.5.1",
     "prettier": "3.6.2",
     "semantic-release": "24.2.8",
     "typescript": "5.9.2",
-    "typescript-eslint": "^8.44.0",
-    "vitest": "^3.2.4"
+    "typescript-eslint": "8.44.0",
+    "vitest": "3.2.4"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.0.0"
