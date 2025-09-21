@@ -14,7 +14,7 @@ export interface ParameterReaderProps {
 }
 
 function removeLeadingSlash(value: string): string {
-  return value.slice(0, 1) == "/" ? value.slice(1) : value
+  return value.startsWith("/") ? value.slice(1) : value
 }
 
 /**
@@ -51,7 +51,7 @@ export class ParameterReader extends cr.AwsCustomResource {
     })
 
     const r = this.node.findChild("Resource").node.defaultChild as CfnResource
-    r.cfnOptions.metadata = r.cfnOptions.metadata || {}
+    r.cfnOptions.metadata = r.cfnOptions.metadata ?? {}
     r.cfnOptions.metadata.Nonce = props.nonce ?? Date.now().toString()
   }
 
