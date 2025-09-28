@@ -33,7 +33,7 @@
     "@aws-cdk/assert": "2.68.0",
     "@eslint/js": "9.36.0",
     "@types/node": "24.5.2",
-    "aws-cdk-lib": "2.216.0",
+    "aws-cdk-lib": "2.217.0",
     "aws-sdk": "2.1692.0",
     "constructs": "10.4.2",
     "eslint": "9.36.0",
