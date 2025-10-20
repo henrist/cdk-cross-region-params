@@ -32,7 +32,7 @@
   "devDependencies": {
     "@aws-cdk/assert": "2.68.0",
     "@eslint/js": "9.37.0",
-    "@types/node": "24.8.0",
+    "@types/node": "24.8.1",
     "aws-cdk-lib": "2.220.0",
     "aws-sdk": "2.1692.0",
     "constructs": "10.4.2",
