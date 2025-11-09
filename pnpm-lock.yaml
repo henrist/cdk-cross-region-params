@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@aws-cdk/assert':
         specifier: 2.68.0
-        version: 2.68.0(aws-cdk-lib@2.220.0(constructs@10.4.2))(constructs@10.4.2)(jest@30.2.0(@types/node@24.10.0))
+        version: 2.68.0(aws-cdk-lib@2.220.0(constructs@10.4.3))(constructs@10.4.3)(jest@30.2.0(@types/node@24.10.0))
       '@eslint/js':
         specifier: 9.39.1
         version: 9.39.1
@@ -19,13 +19,13 @@ importers:
         version: 24.10.0
       aws-cdk-lib:
         specifier: 2.220.0
-        version: 2.220.0(constructs@10.4.2)
+        version: 2.220.0(constructs@10.4.3)
       aws-sdk:
         specifier: 2.1692.0
         version: 2.1692.0
       constructs:
-        specifier: 10.4.2
-        version: 10.4.2
+        specifier: 10.4.3
+        version: 10.4.3
       eslint:
         specifier: 9.39.1
         version: 9.39.1(jiti@2.6.1)
@@ -37,7 +37,7 @@ importers:
         version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(prettier@3.6.2)
       jest-cdk-snapshot:
         specifier: 2.3.6
-        version: 2.3.6(aws-cdk-lib@2.220.0(constructs@10.4.2))(constructs@10.4.2)(jest@30.2.0(@types/node@24.10.0))
+        version: 2.3.6(aws-cdk-lib@2.220.0(constructs@10.4.3))(constructs@10.4.3)(jest@30.2.0(@types/node@24.10.0))
       jiti:
         specifier: 2.6.1
         version: 2.6.1
@@ -1380,8 +1380,8 @@ packages:
   config-chain@1.1.13:
     resolution: {integrity: sha512-qj+f8APARXHrM0hraqXYb2/bOVSV4PvJQlNZ/DVj0QrmNM2q2euizkeuVckQ57J+W0mRH6Hvi+k50M4Jul2VRQ==}
 
-  constructs@10.4.2:
-    resolution: {integrity: sha512-wsNxBlAott2qg8Zv87q3eYZYgheb9lchtBfjHzzLHtXbttwSrHPs1NNQbBrmbb1YZvYg2+Vh0Dor76w4mFxJkA==}
+  constructs@10.4.3:
+    resolution: {integrity: sha512-3+ZB67qWGM1vEstNpj6pGaLNN1qz4gxC1CBhEUhZDZk0PqzQWY65IzC1Doq17MGPa9xa2wJ1G/DJ3swU8kWAHQ==}
 
   conventional-changelog-angular@8.1.0:
     resolution: {integrity: sha512-GGf2Nipn1RUCAktxuVauVr1e3r8QrLP/B0lEUsFktmGqc3ddbQkhoJZHJctVU829U1c6mTSWftrVOCHaL85Q3w==}
@@ -3330,11 +3330,11 @@ packages:
 
 snapshots:
 
-  '@aws-cdk/assert@2.68.0(aws-cdk-lib@2.220.0(constructs@10.4.2))(constructs@10.4.2)(jest@30.2.0(@types/node@24.10.0))':
+  '@aws-cdk/assert@2.68.0(aws-cdk-lib@2.220.0(constructs@10.4.3))(constructs@10.4.3)(jest@30.2.0(@types/node@24.10.0))':
     dependencies:
       '@aws-cdk/cloudformation-diff': 2.68.0
-      aws-cdk-lib: 2.220.0(constructs@10.4.2)
-      constructs: 10.4.2
+      aws-cdk-lib: 2.220.0(constructs@10.4.3)
+      constructs: 10.4.3
       jest: 30.2.0(@types/node@24.10.0)
 
   '@aws-cdk/asset-awscli-v1@2.2.242': {}
@@ -4506,12 +4506,12 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  aws-cdk-lib@2.220.0(constructs@10.4.2):
+  aws-cdk-lib@2.220.0(constructs@10.4.3):
     dependencies:
       '@aws-cdk/asset-awscli-v1': 2.2.242
       '@aws-cdk/asset-node-proxy-agent-v6': 2.1.0
       '@aws-cdk/cloud-assembly-schema': 48.17.0
-      constructs: 10.4.2
+      constructs: 10.4.3
 
   aws-sdk@2.1692.0:
     dependencies:
@@ -4738,7 +4738,7 @@ snapshots:
       ini: 1.3.8
       proto-list: 1.2.4
 
-  constructs@10.4.2: {}
+  constructs@10.4.3: {}
 
   conventional-changelog-angular@8.1.0:
     dependencies:
@@ -5446,10 +5446,10 @@ snapshots:
 
   java-properties@1.0.2: {}
 
-  jest-cdk-snapshot@2.3.6(aws-cdk-lib@2.220.0(constructs@10.4.2))(constructs@10.4.2)(jest@30.2.0(@types/node@24.10.0)):
+  jest-cdk-snapshot@2.3.6(aws-cdk-lib@2.220.0(constructs@10.4.3))(constructs@10.4.3)(jest@30.2.0(@types/node@24.10.0)):
     dependencies:
-      aws-cdk-lib: 2.220.0(constructs@10.4.2)
-      constructs: 10.4.2
+      aws-cdk-lib: 2.220.0(constructs@10.4.3)
+      constructs: 10.4.3
       jest: 30.2.0(@types/node@24.10.0)
       js-yaml: 3.14.1
 
