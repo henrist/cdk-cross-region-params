@@ -35,7 +35,7 @@
     "@types/node": "24.10.9",
     "aws-cdk-lib": "2.220.0",
     "aws-sdk": "2.1692.0",
-    "constructs": "10.4.4",
+    "constructs": "10.4.5",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.5",
