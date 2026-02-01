@@ -21,8 +21,8 @@ importers:
         specifier: 2.220.0
         version: 2.220.0(constructs@10.4.5)
       aws-sdk:
-        specifier: 2.1692.0
-        version: 2.1692.0
+        specifier: 2.1693.0
+        version: 2.1693.0
       constructs:
         specifier: 10.4.5
         version: 10.4.5
@@ -1191,8 +1191,8 @@ packages:
       - yaml
       - mime-types
 
-  aws-sdk@2.1692.0:
-    resolution: {integrity: sha512-x511uiJ/57FIsbgUe5csJ13k3uzu25uWQE+XqfBis/sB0SFoiElJWXRkgEAUh0U6n40eT3ay5Ue4oPkRMu1LYw==}
+  aws-sdk@2.1693.0:
+    resolution: {integrity: sha512-cJmb8xEnVLT+R6fBS5sn/EFJiX7tUnDaPtOPZ1vFbOJtd0fnZn/Ky2XGgsvvoeliWeH7mL3TWSX5zXXGSQV6gQ==}
     engines: {node: '>= 10.0.0'}
 
   babel-jest@30.2.0:
@@ -4485,7 +4485,7 @@ snapshots:
       '@aws-cdk/cloud-assembly-schema': 48.18.0
       constructs: 10.4.5
 
-  aws-sdk@2.1692.0:
+  aws-sdk@2.1693.0:
     dependencies:
       buffer: 4.9.2
       events: 1.1.1
